@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import PageListWrap from "./components/pagination/pageList";
+import { useState } from "react";
+import Loading from "./components/loading/loading";
+import { Suspense } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Suspense fallback={<Loading />}>
+            <div>
+                <div className="App">
+                    <header className="App-header">
+                        <h1>Pagination</h1>
+                        <PageListWrap></PageListWrap>
+                    </header>
+                </div>
+            </div>
+        </Suspense>
+    );
 }
 
 export default App;
